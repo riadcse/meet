@@ -16,7 +16,6 @@ workflows:
       cocoapods: 1.10.0.beta.1
     scripts:
       - flutter packages pub get
-      - flutter upgrade
       - flutter pub get
       - cd $FCI_BUILD_DIR/ios && pod install
       # - find . -name "Podfile" -execdir pod install \;
@@ -24,7 +23,7 @@ workflows:
       - app-store-connect fetch-signing-files "$(xcode-project detect-bundle-id)"
         --type IOS_APP_DEVELOPMENT --create
       - keychain add-certificates
-      - flutter build ios --debug --no-codesign
+      - flutter build ios
       - xcode-project use-profiles
       - xcode-project build-ipa --workspace "ios/Runner.xcworkspace" --scheme "Runner"
     artifacts:
