@@ -16,6 +16,7 @@ workflows:
       cocoapods: 1.10.0.beta.1
     scripts:
       - flutter packages pub get
+      - flutter upgrade
       - flutter pub get
       - cd $FCI_BUILD_DIR/ios && pod install
       # - find . -name "Podfile" -execdir pod install \;
