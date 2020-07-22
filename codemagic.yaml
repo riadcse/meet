@@ -18,7 +18,7 @@ workflows:
       - flutter packages pub get
       - flutter pub get
       - cd $FCI_BUILD_DIR/ios && pod install
-      - find . -name "Podfile" -execdir pod install \;
+      # - find . -name "Podfile" -execdir pod install \;
       - keychain initialize
       - app-store-connect fetch-signing-files "$(xcode-project detect-bundle-id)"
         --type IOS_APP_DEVELOPMENT --create
