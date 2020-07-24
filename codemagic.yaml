@@ -24,7 +24,7 @@ workflows:
       - app-store-connect fetch-signing-files "$(xcode-project detect-bundle-id)"
         --type IOS_APP_DEVELOPMENT --create
       - keychain add-certificates
-      - flutter build ios -debug
+      - flutter build ios --debug
       - xcode-project build-ipa --workspace "ios/Runner.xcworkspace" --scheme "Runner"
     artifacts:
       - build/ios/ipa/*.ipa
