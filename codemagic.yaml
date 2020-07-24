@@ -15,6 +15,8 @@ workflows:
       xcode: latest
       cocoapods: 1.10.0.beta.1
     scripts:
+      - flutter clean
+      - flutter build
       - flutter packages pub get
       - flutter pub get
       - find . -name "Podfile" -execdir pod install \;
@@ -23,7 +25,6 @@ workflows:
         --type IOS_APP_DEVELOPMENT --create
       - keychain add-certificates
       - flutter build ios -debug
-      - xcode-project use-profiles
       - xcode-project build-ipa --workspace "ios/Runner.xcworkspace" --scheme "Runner"
     artifacts:
       - build/ios/ipa/*.ipa
