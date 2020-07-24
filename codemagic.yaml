@@ -15,9 +15,9 @@ workflows:
       xcode: latest
       cocoapods: 1.10.0.beta.1
     scripts:
+      - flutter packages pub get
       - flutter clean
       - flutter build
-      - flutter packages pub get
       - flutter pub get
       - find . -name "Podfile" -execdir pod install \;
       - keychain initialize
